@@ -378,23 +378,24 @@ export class Core {
 
   private async initConfig(config: Record<string, unknown>): Promise<ResolvedConfig> {
     const collections = new Map<string, Collection>();
-    let globalConfig: GlobalConfig;
+    const globalConfig: GlobalConfig = {};
 
-    if ("default" in config) {
-      globalConfig = config.default as GlobalConfig;
-      for (const [k, v] of Object.entries(config)) {
-        if (v instanceof Collection) {
-          globalConfig.collections ??= {};
-          globalConfig.collections[k] = v;
-        }
+    for (const [k, v] of Object.entries(config)) {
+      if (v instanceof Collection) {
+        globalConfig.collections ??= {};
+        globalConfig.collections[k] = v;
+      } else if (k === "default") {
+        const { collections, ...rest } = v as GlobalConfig;
+        globalConfig.collections ??= {};
+        Object.assign(globalConfig, rest);
+        Object.assign(globalConfig.collections, collections);
+      } else {
+        globalConfig[k as never] = v as never;
       }
-    } else {
-      globalConfig = config as GlobalConfig;
     }
 
-    globalConfig.collections ??= {};
     const pendingCollections = new Map<string, CollectionsPack[string]>(
-      Object.entries(globalConfig.collections),
+      globalConfig.collections ? Object.entries(globalConfig.collections) : undefined,
     );
     while (pendingCollections.size > 0) {
       const entries = Array.from(pendingCollections.entries());
