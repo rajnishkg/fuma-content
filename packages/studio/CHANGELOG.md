@@ -1,5 +1,13 @@
 # @fuma-content/studio
 
+## 2.1.1
+
+### Patch Changes
+
+- Updated dependencies [c0fff35]
+- Updated dependencies [6927592]
+  - fuma-content@1.4.0
+
 ## 2.1.0
 
 ### Minor Changes

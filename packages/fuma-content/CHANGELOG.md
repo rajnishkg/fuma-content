@@ -1,5 +1,15 @@
 # fuma-content
 
+## 1.4.0
+
+### Minor Changes
+
+- 6927592: Support comark
+
+### Patch Changes
+
+- c0fff35: fix error without default config
+
 ## 1.3.0
 
 ### Minor Changes
