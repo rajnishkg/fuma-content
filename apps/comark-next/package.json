@@ -1,0 +1,24 @@
+{
+  "name": "example-comark-next",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "types:check": "fuma-content && tsc --noEmit"
+  },
+  "dependencies": {
+    "fuma-content": "workspace:*",
+    "next": "16.2.6",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.2",
+    "typescript": "^6.0.3"
+  }
+}

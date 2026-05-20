@@ -1,0 +1,12 @@
+---
+title: MDC page
+description: This page proves .mdc files are included by the Comark collection.
+---
+
+# Hello from MDC
+
+::card{accent="violet"}
+Comark component blocks can live in `.mdc` files next to normal Markdown content.
+::
+
+Inline formatting like **bold text** and _emphasis_ is parsed too.
